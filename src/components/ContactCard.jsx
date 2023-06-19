@@ -10,11 +10,44 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
+import BusinessIcon from '@mui/icons-material/Business';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
 
-const ContactCard = () => {
+const ContactCard = ({contact, index}) => {
+
+    const { fullName, email, mobile, work } = contact;
 
     return(
-        <div>Hello</div>
+
+        <Card sx={{ height: '100%'}}>
+
+            {/* NAME: REQUIRED */}
+            <CardContent>
+                {fullName}
+            </CardContent>
+
+            {/* EMAIL: REQUIRED */}
+            <CardContent sx={{ display:'flex', alignItems: 'center'}}>
+            <MailOutlineIcon sx={{mr:1}} />
+                {email}
+            </CardContent>
+
+            {/* MOBILE PHONE: REQUIRED */}
+            <CardContent sx={{ display: 'flex', alignItems: 'center' }}>
+            <PhoneAndroidIcon sx={{mr:1}}/>
+                {mobile}
+            </CardContent>
+
+            {/* WORK PHONE: OPTIONAL */}
+            {work && ( 
+                <CardContent sx={{ display: 'flex', alignItems: 'center' }}>
+                    <BusinessIcon sx={{ mr: 1 }} />
+                    {work}
+                </CardContent>
+                )
+            }
+        </Card>
     )
 }
 

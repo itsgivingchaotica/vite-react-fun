@@ -3,10 +3,6 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -29,30 +25,24 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+
+  /* PAINT BACKGROUND */
+    background-image: url('./images/splatter.jpg');
+    background-size: cover;
+    background-position: 'center';
+    background-repeat: no-repeat;
+    width: '100vw';
+    height: '100vh';
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px;
+    width: 100%;
+    margin: auto;
+    background-color: black;
 }
 
 @media (prefers-color-scheme: light) {
