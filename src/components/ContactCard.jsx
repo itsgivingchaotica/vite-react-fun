@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 import BusinessIcon from '@mui/icons-material/Business';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import '../styles/contact_card.css'
 
 const ContactCard = ({contact, index}) => {
 
@@ -24,7 +25,8 @@ const ContactCard = ({contact, index}) => {
 
             {/* NAME: REQUIRED */}
             <CardContent>
-                {fullName}
+            <Typography variant="h4" className="name"> {fullName} </Typography>
+                
             </CardContent>
 
             {/* EMAIL: REQUIRED */}
