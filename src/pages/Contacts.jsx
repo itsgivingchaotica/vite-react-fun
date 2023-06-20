@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import * as com from '../components/index.js'
 import Grid from '@mui/material/Grid'
+import '../styles/contact_card.css'
 
-export default function Contact(){
+export default function Contacts(){
     const [contacts,setContacts] = useState([
        {
             firstName: 'John',
@@ -40,7 +41,8 @@ export default function Contact(){
     }
 
      return (
-     <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} justifyContent="flex-start">
+        <div className = "grid">
+     <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} sx={{justifyContent: "flex-start", paddingTop: '40px' }}>
       <Grid item xs={12} md={4}>
         <com.InputForm addToContacts={addToContacts}/>
       </Grid>
@@ -54,5 +56,6 @@ export default function Contact(){
         </Grid>
       </Grid>
     </Grid>
+    </div>
   )
 }
