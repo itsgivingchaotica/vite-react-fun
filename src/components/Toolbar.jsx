@@ -73,7 +73,7 @@ const Toolbar = ({rowCount, columnCount, setRowCount, setColumnCount}) => {
 
               {/* ROWS  */}
             <Grid item xs={1} md={2} lg={3} xl={4}>
-                <Card style={{backgroundColor: 'white', color:'black', justifyContent: 'center', maxHeight: '60px'}}>
+                <Card style={{backgroundColor: 'var(--antique-white)', color:'black', justifyContent: 'center', maxHeight: '60px'}}>
                   <CardContent sx={{display: 'flex',
     justifyContent: 'center', alignItems:'center'}}>
                     {/* DECREMENT ROW */}
@@ -102,7 +102,7 @@ const Toolbar = ({rowCount, columnCount, setRowCount, setColumnCount}) => {
             </Grid>
             {/* COLUMNS */}
             <Grid item xs={1} md={2} lg={3} xl={4}>
-              <Card style={{backgroundColor: 'white', color:'black', justifyContent: 'center', maxHeight: '60px' }}>
+              <Card style={{backgroundColor: 'var(--antique-white)', color:'black', justifyContent: 'center', maxHeight: '60px' }}>
                 <CardContent sx={{display: 'flex',
     justifyContent: 'center', alignItems:'center'}}>
                 {/* DECREMENT COLUMN */}
@@ -167,7 +167,7 @@ const Toolbar = ({rowCount, columnCount, setRowCount, setColumnCount}) => {
             {/* FILL REST */}
             <Grid container columns={{ xs: 2}} sx={{marginLeft:'20px', marginTop: '10px'}}>
             <Grid item xs={1} md={2} lg={3} xl={4}>
-                <Card style={{backgroundColor: 'white', color:'black', justifyContent: 'center', maxWidth:'150px', maxHeight: '60px'}}>
+                <Card style={{backgroundColor: 'var(--antique-white)', color:'black', justifyContent: 'center', maxWidth:'150px', maxHeight: '60px'}}>
                 <CardContent sx={{display: 'flex',
     justifyContent: 'center', alignItems:'center'}}>
     <Button variant="outlined" color="primary" sx={{marginLeft:'10px'}}>
@@ -183,7 +183,7 @@ const Toolbar = ({rowCount, columnCount, setRowCount, setColumnCount}) => {
 
             {/* FILL ALL */}
             <Grid item xs={1} md={2} lg={3} xl={4}>
-                <Card style={{backgroundColor: 'white', color:'black', justifyContent: 'center', maxWidth:'150px', maxHeight: '60px'}} >
+                <Card style={{backgroundColor: 'var(--antique-white)', color:'black', justifyContent: 'center', maxWidth:'150px', height:'60px'}} >
                 <CardContent sx={{display: 'flex',
     justifyContent: 'center', alignItems:'center'}}>
     <Button variant="outlined" color="primary" sx={{marginLeft:'10px'}}>
@@ -199,7 +199,7 @@ const Toolbar = ({rowCount, columnCount, setRowCount, setColumnCount}) => {
             {/* DRAW */}
             <Grid container columns={{ xs: 2}} sx={{marginLeft:'20px', marginTop: '10px'}}>
             <Grid item xs={1} md={2} lg={3} xl={4}>
-                <Card style={{backgroundColor: 'white', color:'black', justifyContent: 'center', maxWidth:'150px', maxHeight: '60px'}}>
+                <Card style={{backgroundColor: 'var(--antique-white)', color:'black', justifyContent: 'center', maxWidth:'150px', maxHeight: '60px'}}>
                 <CardContent sx={{display: 'flex',
     justifyContent: 'center', alignItems:'center'}}>
                 <Button variant="outlined" color="success" sx={{marginLeft:'10px'}}>
@@ -211,7 +211,7 @@ const Toolbar = ({rowCount, columnCount, setRowCount, setColumnCount}) => {
 
             {/* ERASE */}
             <Grid item xs={1} md={2} lg={3} xl={4}>
-                <Card style={{backgroundColor: 'white', color:'black', justifyContent: 'center', maxWidth:'150px', maxHeight: '60px'}}>
+                <Card style={{backgroundColor: 'var(--antique-white)', color:'black', justifyContent: 'center', maxWidth:'150px', maxHeight: '60px'}}>
                 <CardContent sx={{display: 'flex',
     justifyContent: 'center', alignItems:'center'}}>
                 <Button variant="outlined" color="error" sx={{marginLeft:'10px'}}>
@@ -225,7 +225,7 @@ const Toolbar = ({rowCount, columnCount, setRowCount, setColumnCount}) => {
             {/* CLEAR ALL COLORS */}
             <Grid container columns={{ xs: 2}} sx={{marginLeft:'20px', marginTop: '10px'}}>
             <Grid item xs={1} md={2} lg={3} xl={4}>
-                <Card style={{backgroundColor: 'white', color:'black', justifyContent: 'center', maxWidth:'150px', maxHeight: '60px'}}>
+                <Card style={{backgroundColor: 'var(--antique-white)', color:'black', justifyContent: 'center', maxWidth:'150px', maxHeight: '60px'}}>
                 <CardContent sx={{display: 'flex',
     justifyContent: 'center', alignItems:'center'}}>
                 <Button variant="outlined" color="primary" sx={{marginLeft:'10px'}}>
@@ -237,7 +237,7 @@ const Toolbar = ({rowCount, columnCount, setRowCount, setColumnCount}) => {
 
             {/* DELETE GRID */}
             <Grid item xs={1} md={2} lg={3} xl={4}>
-                <Card style={{backgroundColor: 'white', color:'black', justifyContent: 'center', maxWidth:'150px', maxHeight: '60px'}}>
+                <Card style={{backgroundColor: 'var(--antique-white)', color:'black', justifyContent: 'center', maxWidth:'150px', maxHeight: '60px'}}>
                 <CardContent sx={{display: 'flex',
     justifyContent: 'center', alignItems:'center'}}>
                 <Button variant="outlined" color="primary" sx={{marginLeft:'10px'}}>
