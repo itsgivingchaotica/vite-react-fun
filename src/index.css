@@ -28,7 +28,7 @@ body {
 
   /* PAINT BACKGROUND */
     background-image: url('./images/splatter.jpg');
-    background-size: contain;
+    background-size: cover;
     background-position: 'center';
     background-repeat: repeat;
     width: '100vw';
