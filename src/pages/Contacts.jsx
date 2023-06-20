@@ -49,7 +49,7 @@ export default function Contacts(){
       <Grid item xs={12} md={8}>
         <Grid container spacing={2} >
           {contacts.map((contact, index) => (
-            <Grid item xs={6} key={index}>
+          <Grid item xs={6} key={index}>
               <com.ContactCard contact={contact} index={index} />
             </Grid>
           ))}

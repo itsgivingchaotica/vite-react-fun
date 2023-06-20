@@ -1,13 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import * as com from '../components'
+import Grid from '@mui/material/Grid'
 
 export default function Home() {
     
+    const [isHidden,setIshidden] = useState(false)
+
     return (
         <div>
-            <com.Helpbar />
-            <com.Canvas />
-            <com.Toolbar />
+            <Grid container spacing={2}  sx={{padding: '30px', border: "4px solid black"}}>
+              {/* HELPBAR=ON */}
+              <Grid item xs={3}>
+                  <com.Helpbar />
+              </Grid>
+              {/* CANVAS FOR GRID */}
+              <Grid item xs={6}>
+                  <com.Canvas />
+              </Grid>
+              {/* TOOLBAR */}
+              <Grid item xs={3}>
+                  <com.Toolbar />
+              </Grid>
+            </Grid>
         </div>
     )
 }
