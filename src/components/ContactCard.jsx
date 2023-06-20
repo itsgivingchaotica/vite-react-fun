@@ -17,7 +17,7 @@ import '../styles/contact_card.css'
 
 const ContactCard = ({contact, index}) => {
 
-    const { fullName, email, mobile, work } = contact;
+    const { firstName, lastName, email, mobile, work } = contact;
 
     return(
 
@@ -25,7 +25,7 @@ const ContactCard = ({contact, index}) => {
 
             {/* NAME: REQUIRED */}
             <CardContent>
-            <Typography variant="h4" className="name"> {fullName} </Typography>
+            <Typography variant="h4" className="name"> {firstName} {lastName}</Typography>
                 
             </CardContent>
 
