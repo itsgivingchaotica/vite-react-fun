@@ -8,7 +8,7 @@ export default function Home() {
 
     return (
         <div>
-            <Grid container spacing={2}  sx={{padding: '30px', border: "4px solid black"}}>
+            <Grid container spacing={2}  sx={{border: "4px solid black"}}>
               {/* HELPBAR=ON */}
               <Grid item xs={3}>
                   <com.Helpbar />
