@@ -1,25 +1,28 @@
 import React, { useState } from 'react'
 import * as com from '../components'
 import Grid from '@mui/material/Grid'
+import '../App.css'
 
 export default function Home() {
     
     const [isHidden,setIshidden] = useState(false)
+    const [rowCount, setRowCount] = useState(0)
+    const [columnCount, setColumnCount] = useState(0)
 
     return (
-        <div>
-            <Grid container spacing={2}  sx={{padding: '30px', border: "4px solid black"}}>
+        <div id="home">
+            <Grid container spacing={2}  sx={{border: "4px solid black"}}>
               {/* HELPBAR=ON */}
-              <Grid item xs={3}>
+              <Grid item xs={2}>
                   <com.Helpbar />
               </Grid>
               {/* CANVAS FOR GRID */}
-              <Grid item xs={6}>
+              <Grid item xs={7}>
                   <com.Canvas />
               </Grid>
               {/* TOOLBAR */}
-              <Grid item xs={3}>
-                  <com.Toolbar />
+              <Grid item xs={3} sx={{ minWidth: '300px'}}>
+                  <com.Toolbar rowCount={rowCount} columnCount={columnCount} setRowCount={setRowCount} setColumnCount={setColumnCount}/>
               </Grid>
             </Grid>
         </div>

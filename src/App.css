@@ -8,6 +8,7 @@
   --antique-white: #F2E5D1ff;
   --engineering-orange: #D70504ff;
   --rich-black-opaque: rgba(3, 11, 22, 0.5);
+  overflow-y: 'auto';
 }
 
 .navbar{
@@ -20,6 +21,20 @@
   top: 0;
   left: 0;
   width: 100%;
+}
+
+.decrement{
+  background-color: 'red' !important;
+}
+
+.fill-rest {
+  width: 27px;
+  height: 27px;
+}
+
+.fill-all {
+  width: 28px;
+  height: 28px;
 }
 
 /* .logo {

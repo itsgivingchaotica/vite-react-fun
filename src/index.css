@@ -29,10 +29,10 @@ body {
   /* PAINT BACKGROUND */
     background-image: url('./images/splatter.jpg');
     background-size: cover;
-    background-position: 'center';
+    background-position: center;
     background-repeat: repeat;
-    width: '100vw';
-    height: '100vh';
+    width: 100vw;
+    height: 115vh;
 }
 
 .navbar {
