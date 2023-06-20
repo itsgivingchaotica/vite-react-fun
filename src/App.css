@@ -27,6 +27,16 @@
   background-color: 'red' !important;
 }
 
+.fill-rest {
+  width: 27px;
+  height: 27px;
+}
+
+.fill-all {
+  width: 28px;
+  height: 28px;
+}
+
 /* .logo {
   height: 6em;
   padding: 1.5em;
