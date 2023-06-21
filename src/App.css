@@ -37,40 +37,29 @@
   height: 28px;
 }
 
-/* .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-} */
-
-
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#home{
+  margin-top: 100px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+#table-wrapper{
+  border: '2px solid black';
+  display:'flex';
+  flex-wrap:'wrap';
 }
 
-.card {
-  padding: 2em;
+.table-container{
+  display: 'grid';
+  justify-content:'start';
+  max-height: 600px;
+  overflow-x: 'auto',
+
 }
 
-.read-the-docs {
-  color: #888;
+.table{
+  border-collapse: collapse;
 }
+
+.table-cell{
+  padding: 0;
+}
+

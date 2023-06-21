@@ -29,7 +29,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleHalfStroke, faEraser } from '@fortawesome/free-solid-svg-icons'
 import '../App.css'
 
-const Toolbar = ({rowCount, columnCount, setRowCount, setColumnCount}) => {
+const Toolbar = ({handleAddColumn, handleAddRow, handleRemoveColumn, handleRemoveRow}) => {
     //material ui media query for small screen
     const isSmallScreen = useMediaQuery('(max-width: 900px')
     const isMediumScreen = useMediaQuery('(max-width: 1200px)')
@@ -38,21 +38,36 @@ const Toolbar = ({rowCount, columnCount, setRowCount, setColumnCount}) => {
     const [isFullHovered, setIsFullHovered] = useState(false)
     const [isColorPicked, setIsColorPicked] = useState(true)
     const [selectedColor, setSelectedColor] = useState('#FF6F61')
+    const [rowCount, setRowCount] = useState(0)
+    const [columnCount, setColumnCount] = useState(0)
 
      const handleDecrementRow = () => {
-    setRowCount((prevCount) => Math.max(1, prevCount - 1));
+        if (rowCount > 0)
+            setRowCount((prevCount) => prevCount - 1);
+            handleRemoveRow();
   };
 
   const handleIncrementRow = () => {
+    if (columnCount == 0){
     setRowCount((prevCount) => prevCount + 1);
+    }
+    setRowCount((prevCount) => prevCount + 1);
+    handleAddRow();
   };
 
   const handleDecrementColumn = () => {
-    setColumnCount((prevCount) => Math.max(1, prevCount - 1));
+    if (columnCount > 0){
+    setColumnCount((prevCount) => prevCount - 1);
+    }
+    handleRemoveColumn();
   };
 
   const handleIncrementColumn = () => {
+    if (rowCount ==0){
+        setRowCount((prevCount) => prevCount + 1);
+    }
     setColumnCount((prevCount) => prevCount + 1);
+    handleAddColumn();
   };
 
     const handleSetColor = (newColor) => {
@@ -139,7 +154,7 @@ const Toolbar = ({rowCount, columnCount, setRowCount, setColumnCount}) => {
                         <div style={{marginTop: '4px'}}>
                         <Badge 
                             color="secondary" 
-                            badgeContent={rowCount}
+                            badgeContent={columnCount}
                             >
                             <Typography variant="subtitle1">
                                 COL
