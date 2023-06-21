@@ -13,11 +13,11 @@ export default function Home() {
         <div id="home">
             <Grid container spacing={2}  sx={{border: "4px solid black"}}>
               {/* HELPBAR=ON */}
-              <Grid item xs={1}>
+              <Grid item xs={0.03}>
                   <com.Helpbar />
               </Grid>
               {/* CANVAS FOR GRID */}
-              <Grid item xs={8}>
+              <Grid item xs={8.7}>
                   <com.Canvas />
               </Grid>
               {/* TOOLBAR */}
