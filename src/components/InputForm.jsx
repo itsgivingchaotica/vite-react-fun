@@ -48,7 +48,10 @@ const InputForm = ({addToContacts}) => {
         setTimeout(() => {
             setIsSubmitted(false);
         }, 3000);
-        setIsTouched(true);
+        setIsFirstNameTouched(false);
+        setIsLastNameTouched(false);
+        setIsEmailTouched(false);
+        setIsMobileTouched(false);
     }
 
     return (

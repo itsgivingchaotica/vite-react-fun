@@ -4,3 +4,11 @@
     font-family: 'Mukta', sans-serif !important;
     border-bottom: 2px solid black;
 }
+
+.fill-rest,.fill-all{
+    margin-top: 6px;
+}
+
+.fa-circle-half-stroke{
+margin-bottom: 3px;
+}
