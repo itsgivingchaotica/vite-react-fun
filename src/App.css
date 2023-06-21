@@ -37,9 +37,8 @@
   height: 28px;
 }
 
-#home{
-  margin-top: 100px;
-}
+/* #home{
+} */
 
 #table-wrapper{
   border: '2px solid black';
@@ -47,7 +46,7 @@
   flex-wrap:'wrap';
 }
 
-.table-container{
+.grid-container{
   display: 'grid';
   justify-content:'start';
   max-height: 600px;
@@ -61,5 +60,14 @@
 
 .table-cell{
   padding: 0;
+}
+
+.grid-cell{
+  border: '3px solid black';
+  box-sizing:'border-box';
+  background-color: 'white';
+  flex-shrink:1;
+  width: '.01%';
+  white-space:'nowrap';
 }
 
