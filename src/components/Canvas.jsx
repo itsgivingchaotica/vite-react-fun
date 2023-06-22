@@ -6,7 +6,8 @@ import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import '../App.css';
 
-const Canvas = ({ grid, isMouseDown, isDrawing, drawingColor, handleOnMouseOver, handleOnMouseDown, handleOnMouseUp }) => {
+//EXPRESSES THE STATE OF GRID
+const Canvas = ({ grid, isMouseDown, isDrawing, drawingColor, handleOnMouseOver, handleOnMouseDown, handleOnMouseUp, isCanvasMode }) => {
 
   const handleMouseOver = (rowIndex, columnIndex) => {
     if (isMouseDown) {

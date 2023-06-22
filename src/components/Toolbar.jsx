@@ -2,20 +2,21 @@ import React, { useState, useEffect } from 'react'
 import * as com from '../components'
 import Grid from '@mui/material/Grid'
 import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
+import FormGroup from '@mui/material/FormGroup'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import { alpha, styled } from '@mui/material/styles';
+import { orange } from '@mui/material/colors';
+import Switch from '@mui/material/Switch';
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
-import Badge from '@mui/material/Badge'
-import Stack from '@mui/material/Stack'
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import BrushIcon from '@mui/icons-material/Brush'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 import GridOnIcon from '@mui/icons-material/GridOn'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleHalfStroke, faEraser } from '@fortawesome/free-solid-svg-icons'
+import { faEraser } from '@fortawesome/free-solid-svg-icons'
 import '../App.css'
 
-const Toolbar = ({handleAddColumn, handleAddRow, handleRemoveColumn, handleRemoveRow, isSmallScreen, handleDeleteGrid, isDrawing, setIsDrawing}) => {
+const Toolbar = ({handleAddColumn, handleAddRow, handleRemoveColumn, handleRemoveRow, isSmallScreen, handleDeleteGrid, isDrawing, setIsDrawing, handleModeChange, isCanvasMode}) => {
     //material ui media query for small screen
     const [rowCount, setRowCount] = useState(0)
     const [columnCount, setColumnCount] = useState(0)
@@ -87,7 +88,12 @@ const Toolbar = ({handleAddColumn, handleAddRow, handleRemoveColumn, handleRemov
                    />) : (<GridOnIcon style={{fontSize:"38px",color:'black'}} 
                    />)}
                    </Button>
-        </Grid>
+            </Grid>
+            <Grid item>
+              <FormGroup>
+              <FormControlLabel control={<com.OrangeSwitch onChange={handleModeChange}/>} label={<Typography variant="subtitle1" color='white'>{isCanvasMode ? 'Canvas Mode' : 'Grid Mode'}</Typography>} />
+              </FormGroup>
+            </Grid>
         </Grid>
         </Grid>
         </Grid>

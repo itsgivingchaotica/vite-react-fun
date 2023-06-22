@@ -66,6 +66,11 @@ export default function Home({ref}) {
     setNumColumns(numColumns - 1);
   };
 
+  const handleModeChange = () => {
+    setIsCanvasMode(!isCanvasMode);
+    console.log(isCanvasMode);
+  }
+
   const handlePickColor = () => {
             setIsColorPicked(true);
             setDrawingColor(selectedColor);
@@ -129,7 +134,7 @@ const handleOnMouseDown = (rowIndex, columnIndex, color) => {
       const updatedGrid = [...grid];
       updatedGrid[rowIndex][columnIndex] = color;
       setGrid(updatedGrid);
-    } else if (isCanvasMode) {
+    } else if (isCanvasMode && !isDrawing) {
       const updatedGrid = [...grid];
       updatedGrid[rowIndex][columnIndex] = 'white';
       setGrid(updatedGrid);
@@ -154,14 +159,13 @@ const handleOnMouseOver = (rowIndex, columnIndex, color) => {
       const updatedGrid = [...grid];
       updatedGrid[rowIndex][columnIndex] = color;
       setGrid(updatedGrid);
-    } else if (isCanvasMode) {
+    } else if (isCanvasMode && !isDrawing) {
       const updatedGrid = [...grid];
       updatedGrid[rowIndex][columnIndex] = 'white';
       setGrid(updatedGrid);
     } else {
       // Logic for handling erasing action
-      // For example, set the color of the cell
-      // at the specified row and column index to 'white'
+      // row and column index to 'clear' if in Grid mode
       const updatedGrid = [...grid];
       updatedGrid[rowIndex][columnIndex] = '';
       setGrid(updatedGrid);
@@ -191,11 +195,11 @@ const handleOnMouseOver = (rowIndex, columnIndex, color) => {
               </Grid>
               {/* CANVAS FOR GRID */}
               <Grid item xs={6}>
-                  <com.Canvas grid={grid} isMouseDown={isMouseDown} isDrawing={isDrawing} selectedColor={selectedColor} drawingColor={drawingColor} handleOnMouseOver={handleOnMouseOver} handleOnMouseDown={handleOnMouseDown} handleOnMouseUp={handleOnMouseUp}/>
+                  <com.Canvas grid={grid} isMouseDown={isMouseDown} isDrawing={isDrawing} selectedColor={selectedColor} drawingColor={drawingColor} handleOnMouseOver={handleOnMouseOver} handleOnMouseDown={handleOnMouseDown} handleOnMouseUp={handleOnMouseUp} isCanvasMode={isCanvasMode}/>
               </Grid>
               {/* GRID BUILDER UTIL*/}
               <Grid item xs={3} sx={{ minWidth: '300px'}}>
-                  <com.Toolbar handleAddRow={handleAddRow} handleAddColumn={handleAddColumn} handleRemoveRow={handleRemoveRow} handleRemoveColumn={handleRemoveColumn} isDrawing={isDrawing} setIsDrawing={setIsDrawing} handleDeleteGrid={handleDeleteGrid} />
+                  <com.Toolbar handleAddRow={handleAddRow} handleAddColumn={handleAddColumn} handleRemoveRow={handleRemoveRow} handleRemoveColumn={handleRemoveColumn} isDrawing={isDrawing} setIsDrawing={setIsDrawing} handleDeleteGrid={handleDeleteGrid} handleModeChange={handleModeChange} isCanvasMode={isCanvasMode}/>
               </Grid>
             </Grid>
         </div>
