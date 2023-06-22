@@ -16,12 +16,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEraser } from '@fortawesome/free-solid-svg-icons'
 import '../App.css'
 
-const Toolbar = ({handleAddColumn, handleAddRow, handleRemoveColumn, handleRemoveRow, isSmallScreen, handleDeleteGrid, isDrawing, setIsDrawing, handleModeChange, isCanvasMode}) => {
+const Toolbar = ({handleAddColumn, handleAddRow, handleRemoveColumn, handleRemoveRow, isSmallScreen, handleDeleteGrid, isDrawing, setIsDrawing, handleModeChange, isCanvasMode, setIsInitial,isInitial}) => {
     //material ui media query for small screen
     const [rowCount, setRowCount] = useState(0)
     const [columnCount, setColumnCount] = useState(0)
     const [isDeleteHovered, setIsDeleteHovered] = useState(false)
-    const [gridContainer, setGridContainer] = useState({});
 
      const handleDecrementRow = () => {
         if (rowCount > 0)
@@ -36,6 +35,9 @@ const Toolbar = ({handleAddColumn, handleAddRow, handleRemoveColumn, handleRemov
         } else {
         setRowCount((prevCount) => prevCount + 1);
         }
+        if (isInitial){
+          setIsInitial(!isInitial)
+        }
         handleAddRow();
       };
 
@@ -49,8 +51,12 @@ const Toolbar = ({handleAddColumn, handleAddRow, handleRemoveColumn, handleRemov
       const handleIncrementColumn = () => {
         if (rowCount ==0){
             setRowCount((prevCount) => prevCount + 1);
-        }
+            setColumnCount((prevCount) => prevCount + 1);
+        }  else 
         setColumnCount((prevCount) => prevCount + 1);
+        if (isInitial){
+          setIsInitial(!isInitial)
+        }
         handleAddColumn();
       };    
     return (

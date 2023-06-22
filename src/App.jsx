@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import Home from './pages/Home.jsx'
-import Contacts from './pages/Contacts.jsx'
+import Home from './components/pages/Home.jsx'
+import Contacts from './components/pages/Contacts.jsx'
 import * as com from './components'
 
 

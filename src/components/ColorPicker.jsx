@@ -12,9 +12,8 @@ import TurnLeftOutlinedIcon from '@mui/icons-material/TurnLeftOutlined'
 import ErrorOutlinedIcon from '@mui/icons-material/ErrorOutlined'
 
 
-const ColorPicker = ({isColorPicked, handlePickColor, selectedColor, handleSetColor, isSmallScreen, drawingColor, isExtraLargeScreen, cellColors, setCellColors, handleFillAll, handleFillRest, handleResetColors}) => {
+const ColorPicker = ({isColorPicked, handlePickColor, selectedColor, handleSetColor, isSmallScreen, drawingColor, isExtraLargeScreen, handleFillAll, handleFillRest, handleResetColors}) => {
 
-  console.log(cellColors);
 
     return (
         <div style={{color: 'white', position:'fixed'}}>
