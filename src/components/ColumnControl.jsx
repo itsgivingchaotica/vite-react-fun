@@ -15,7 +15,7 @@ const ColumnControl = ({handleIncrementColumn, handleDecrementColumn, columnCoun
 
     return (
     <Grid item xs={1} md={2} lg={3} xl={4} style={{transform:'translateX(12px)'}}>
-                <Card sx={{backgroundColor: 'white', color:'black', maxHeight: '60px', maxWidth: '260px', marginLeft:'18px'}}>
+                <Card sx={{bgcolo: 'white', color:'black', maxHeight: '60px', maxWidth: '260px', marginLeft:'18px'}}>
                   <CardContent>
                     {/* DECREMENT COLUMN */}
                     <Stack direction="row" spacing={1}>

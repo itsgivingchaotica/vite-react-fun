@@ -1,37 +1,61 @@
-import React from 'react'
-import TableContainer from '@mui/material/TableContainer'
-import Table from '@mui/material/Table'
-import TableBody from '@mui/material/Table'
-import TableRow from '@mui/material/TableRow'
-import '../App.css'
+import React, { useEffect, useRef } from 'react';
+import TableContainer from '@mui/material/TableContainer';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableRow from '@mui/material/TableRow';
+import TableCell from '@mui/material/TableCell';
+import '../App.css';
 
-const Canvas = ({grid, isMouseDown, isDrawing,}) => {
+const Canvas = ({ grid, isMouseDown, isDrawing, drawingColor, handleOnMouseOver, handleOnMouseDown, handleOnMouseUp }) => {
 
-    const handleOnMouseOver = (e) => {
-        if (isMouseDown){
-            if (isDrawing){
-                let cells = e.target;
-                if (cells.classList[0] == "grid-cell")
-                    cells.style.backgroundColor = pickedColor;
-            } else {
-                let cell = e.target;
-                if (cell.classList[0] == "grid-cell")
-                    cell.style.backgroundColor = "white";
-            }
-        }
+  const handleMouseOver = (rowIndex, columnIndex) => {
+    if (isMouseDown) {
+      if (isDrawing) {
+        //DRAW
+        handleOnMouseOver(rowIndex, columnIndex, drawingColor);
+      } else {
+        //ERASE
+        handleOnMouseOver(rowIndex, columnIndex, 'white');
+      }
     }
+  };
 
-    return (
-        <div style={{border: '2px solid black'}} onMouseOver={(e) => handleOnMouseOver(e)}>
-            <TableContainer className="grid-container">
-                <Table>
-                    <TableBody>
-                            {grid}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-        </div>
-    )
+  const handleMouseDown = (rowIndex, columnIndex) => {
+      if (isDrawing) {
+        //DRAW
+        handleOnMouseDown(rowIndex, columnIndex, drawingColor);
+      } else {
+        //ERASE
+        handleOnMouseDown(rowIndex, columnIndex, 'white');
+      }
+  }
+  return (
+    <Table>
+      <TableBody>
+        {grid.map((row, rowIndex) => (
+          <TableRow>
+  {row.map((cellColor, columnIndex) => (
+    <TableCell
+      key={`${rowIndex}-${columnIndex}`}
+      onMouseOver={() => handleMouseOver(rowIndex, columnIndex)}
+      // onMouseDown={(cellKey) => handleOnMouseDown(cellKey)} 
+      onMouseDown={() => handleMouseDown(rowIndex,columnIndex)}
+      onMouseUp={handleOnMouseUp}
+      style={{
+        backgroundColor: cellColor,
+        border: '3px solid black',
+        boxSizing: 'border-box',
+        width: '.01%',
+        whiteSpace: 'nowrap',
+      }}
+      className="grid-cell"
+    ></TableCell>
+  ))}
+</TableRow>
+        ))}
+      </TableBody>
+    </Table>
+  );
 }
 
-export default Canvas
+export default Canvas;

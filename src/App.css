@@ -62,12 +62,12 @@
   padding: 0;
 }
 
-.grid-cell{
+/* .grid-cell{
   border: '3px solid black';
   box-sizing:'border-box';
   background-color: 'white';
   flex-shrink:1;
   width: '.01%';
   white-space:'nowrap';
-}
+} */
 
