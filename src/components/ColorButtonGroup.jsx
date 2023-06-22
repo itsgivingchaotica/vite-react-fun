@@ -10,7 +10,7 @@ import fillRestLight from '../images/fill-rest-light.png'
 import fillAllLight from '../images/fill-all-light.png'
 import FormatColorResetIcon from '@mui/icons-material/FormatColorReset'
 
-const ColorButtonGroup = ({canvasRef, handleClearColors, handleFillRest, handleFillAll}) => {
+const ColorButtonGroup = ({handleResetColors, handleFillRest, handleFillAll}) => {
 
     const [isHalfHovered, setIsHalfHovered] = useState(false)
     const [isFullHovered, setIsFullHovered] = useState(false)
@@ -19,7 +19,7 @@ const ColorButtonGroup = ({canvasRef, handleClearColors, handleFillRest, handleF
         <div>
      <Grid container columns={{ xs: 2}} sx={{marginLeft:'20px', marginTop: '10px'}}>
             <Grid item xs={1} md={2} lg={3} xl={4} sx={{marginLeft: '20px', marginBottom: '20px'}}>
-                <Button variant="contained" color="error" sx={{marginLeft: '20px', width: '200px'}} onClick={handleClearColors}>
+                <Button variant="contained" color="error" sx={{marginLeft: '20px', width: '200px'}} onClick={handleResetColors}>
                     <FormatColorResetIcon />
                 </Button>
             </Grid>

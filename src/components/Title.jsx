@@ -9,8 +9,8 @@ const Title = ({isSmallScreen, heading}) => {
     return (
       <Grid item xs={12} >
         <Grid container >
-          <Grid item xs={4} md={8} sx={{backgroundColor:'black'}}>
-            <Card style={{backgroundColor: 'black', color:'white', width:'400px'}}>
+          <Grid item xs={4} md={8} sx={{bgcolor:'black'}}>
+            <Card sx={{bgcolor: 'black', color:'white', width:'400px'}}>
             <CardContent sx={{display: 'flex', width:'270px', justifyContent:'center'}}>
             
             {isSmallScreen ? ( 

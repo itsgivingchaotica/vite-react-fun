@@ -47,7 +47,7 @@ const Helpbar = () => {
 
   return (
     <div >
-      <Button variant="contained" sx={{backgroundColor:'black', marginTop:'100px', position:'fixed', bottom:'0'}} onClick={toggleDrawer("left", true)}>How To<MenuOpenIcon color="success" /></Button>
+      <Button variant="contained" sx={{bgcolor:'black', marginTop:'100px', position:'fixed', bottom:'0'}} onClick={toggleDrawer("left", true)}>How To<MenuOpenIcon color="success" /></Button>
       <Drawer
         anchor="left"
         open={state["left"]}
