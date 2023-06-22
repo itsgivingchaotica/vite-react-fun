@@ -43,7 +43,7 @@ const Canvas = ({ grid, isMouseDown, isDrawing, drawingColor, handleOnMouseOver,
       onMouseDown={() => handleMouseDown(rowIndex,columnIndex)}
       onMouseUp={handleOnMouseUp}
       style={{
-        backgroundColor: isInitial && isCanvasMode ? 'white' : cellColor,
+        backgroundColor: cellColor, //the column index is the background color
         border: '3px solid black',
         boxSizing: 'border-box',
         width: '.01%',
