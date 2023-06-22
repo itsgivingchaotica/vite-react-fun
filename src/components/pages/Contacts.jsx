@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import * as com from '../components/index.js'
+import * as com from '../index.js'
 import Grid from '@mui/material/Grid'
-import '../styles/contact_card.css'
+import '../../styles/contact_card.css'
 
 export default function Contacts(){
     const [contacts,setContacts] = useState([

@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react'
-import * as com from '../components'
+import * as com from '..'
 import Grid from '@mui/material/Grid'
 import TableCell from '@mui/material/TableCell'
 import TableRow from '@mui/material/TableRow'
 import { useMediaQuery } from '@mui/material'
-import '../App.css'
+import '../../App.css'
 
 export default function Home({ref}) {
 
@@ -21,25 +21,31 @@ export default function Home({ref}) {
   const isSmallScreen = useMediaQuery('(max-width: 900px')
   const isMediumScreen = useMediaQuery('(max-width: 1200px)')
   const isExtraLargeScreen = useMediaQuery('(min-width: 1250px)')
+  const [test, setTest] = useState(0)
+  const [isInitial, setIsInitial] = useState(true)
 
   //MAKE NEW GRID ON RENDER
   const generateGrid = () => {
-  const newGrid = [];
-  const cellWidth = numRows > 0 && numColumns > 0 ? 600 / numColumns : 0;
-  for (let i = 0; i < numRows; i++) {
-    const cells = [];
-    for (let j = 0; j < numColumns; j++) {
-      //so as to access the right color use key-value pair
-      const cellKey = `${i}-${j}`;
-      cells.push(cellKey);
-        //Table cell has built in event handlers for mouse clicks/drags over it
+  
+    const newGrid = [];
+    const cellWidth = numRows > 0 && numColumns > 0 ? 600 / numColumns : 0;
+    for (let i = 0; i < numRows; i++) {
+      const cells = [];
+      for (let j = 0; j < numColumns; j++) {
+        //so as to access the right color use key-value pair
+        const cellKey = `${i}-${j}`;
+        cells.push(cellKey);
+          //Table cell has built in event handlers for mouse clicks/drags over it
+      }
+      newGrid.push(cells);
     }
-    newGrid.push(cells);
-  }
-    setGrid(newGrid)
+      setGrid(newGrid)
+      // let newTest = test
+      // setTest(++newTest)
+      // console.log(test)
 };
 
-//generate the grid whenever page renders
+//generate the grid whenever numRows or numColumns renders
  useEffect(() => {
     generateGrid();
   }, [numRows, numColumns]);
@@ -66,6 +72,40 @@ export default function Home({ref}) {
     setNumColumns(numColumns - 1);
   };
 
+  const handleModeChange = () => {
+    setIsCanvasMode(!isCanvasMode);
+    // handleChangeDefault();
+    console.log("hello mode change " + isCanvasMode)
+    //CANVAS MODE - set all empty cells to white
+  }
+
+  const handleChangeDefault = () => {
+    const updatedGrid = [...grid]
+    if (isCanvasMode){
+      console.log("canvas mode")
+       for (let i = 0; i < updatedGrid.length; i++){
+        for (let j = 0; j < updatedGrid[i].length; j++){
+          let cellColor = updatedGrid[i][j];
+          console.log("in canvas loop")
+            if (cellColor === '' || cellColor === undefined)
+              updatedGrid[i][j] = 'white';
+              console.log("updating cell to canvas");
+          }
+        }
+      // GRID MODE - set all white cells to empty
+    } else {
+      console.log("grid mode")
+       for (let i = 0; i < updatedGrid.length; i++){
+        for (let j = 0; j < updatedGrid[i].length; j++){
+          let cellColor = updatedGrid[i][j];
+            if (cellColor === 'white' || cellColor === undefined)
+              updatedGrid[i][j] = '';
+          }
+        }
+    }
+    setGrid(updatedGrid);
+  }
+
   const handlePickColor = () => {
             setIsColorPicked(true);
             setDrawingColor(selectedColor);
@@ -91,7 +131,7 @@ export default function Home({ref}) {
     const handleFillAll = () => {
        const updatedGrid = [...grid];
        for (let i = 0; i < updatedGrid.length; i++){
-        for (let j = 0; j < updatedGrid.length; j++){
+        for (let j = 0; j < updatedGrid[i].length; j++){
           updatedGrid[i][j] = drawingColor;
         }
        }
@@ -103,7 +143,7 @@ export default function Home({ref}) {
       if (isCanvasMode){
         const updatedGrid = [...grid];
        for (let i = 0; i < updatedGrid.length; i++){
-        for (let j = 0; j < updatedGrid.length; j++){
+        for (let j = 0; j < updatedGrid[i].length; j++){
           updatedGrid[i][j] = 'white';
         }
        }
@@ -112,7 +152,7 @@ export default function Home({ref}) {
     // BARE GRID MODE = RESET TO EMPTY BACKGROUND
      const updatedGrid = [...grid];
        for (let i = 0; i < updatedGrid.length; i++){
-        for (let j = 0; j < updatedGrid.length; j++){
+        for (let j = 0; j < updatedGrid[i].length; j++){
           updatedGrid[i][j] = '';
         }
        }
@@ -129,7 +169,7 @@ const handleOnMouseDown = (rowIndex, columnIndex, color) => {
       const updatedGrid = [...grid];
       updatedGrid[rowIndex][columnIndex] = color;
       setGrid(updatedGrid);
-    } else if (isCanvasMode) {
+    } else if (isCanvasMode && !isDrawing) {
       const updatedGrid = [...grid];
       updatedGrid[rowIndex][columnIndex] = 'white';
       setGrid(updatedGrid);
@@ -154,14 +194,13 @@ const handleOnMouseOver = (rowIndex, columnIndex, color) => {
       const updatedGrid = [...grid];
       updatedGrid[rowIndex][columnIndex] = color;
       setGrid(updatedGrid);
-    } else if (isCanvasMode) {
+    } else if (isCanvasMode && !isDrawing) {
       const updatedGrid = [...grid];
       updatedGrid[rowIndex][columnIndex] = 'white';
       setGrid(updatedGrid);
     } else {
       // Logic for handling erasing action
-      // For example, set the color of the cell
-      // at the specified row and column index to 'white'
+      // row and column index to 'clear' if in Grid mode
       const updatedGrid = [...grid];
       updatedGrid[rowIndex][columnIndex] = '';
       setGrid(updatedGrid);
@@ -191,11 +230,11 @@ const handleOnMouseOver = (rowIndex, columnIndex, color) => {
               </Grid>
               {/* CANVAS FOR GRID */}
               <Grid item xs={6}>
-                  <com.Canvas grid={grid} isMouseDown={isMouseDown} isDrawing={isDrawing} selectedColor={selectedColor} drawingColor={drawingColor} handleOnMouseOver={handleOnMouseOver} handleOnMouseDown={handleOnMouseDown} handleOnMouseUp={handleOnMouseUp}/>
+                  <com.Canvas grid={grid} isMouseDown={isMouseDown} isDrawing={isDrawing} selectedColor={selectedColor} drawingColor={drawingColor} handleOnMouseOver={handleOnMouseOver} handleOnMouseDown={handleOnMouseDown} handleOnMouseUp={handleOnMouseUp} isCanvasMode={isCanvasMode} isInitial={isInitial}/>
               </Grid>
               {/* GRID BUILDER UTIL*/}
               <Grid item xs={3} sx={{ minWidth: '300px'}}>
-                  <com.Toolbar handleAddRow={handleAddRow} handleAddColumn={handleAddColumn} handleRemoveRow={handleRemoveRow} handleRemoveColumn={handleRemoveColumn} isDrawing={isDrawing} setIsDrawing={setIsDrawing} handleDeleteGrid={handleDeleteGrid} />
+                  <com.Toolbar handleAddRow={handleAddRow} handleAddColumn={handleAddColumn} handleRemoveRow={handleRemoveRow} handleRemoveColumn={handleRemoveColumn} isDrawing={isDrawing} setIsDrawing={setIsDrawing} handleDeleteGrid={handleDeleteGrid} handleModeChange={handleModeChange} isCanvasMode={isCanvasMode} setIsInitial={setIsInitial} isInitial={isInitial}/>
               </Grid>
             </Grid>
         </div>

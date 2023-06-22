@@ -12,9 +12,8 @@ import TurnLeftOutlinedIcon from '@mui/icons-material/TurnLeftOutlined'
 import ErrorOutlinedIcon from '@mui/icons-material/ErrorOutlined'
 
 
-const ColorPicker = ({isColorPicked, handlePickColor, selectedColor, handleSetColor, isSmallScreen, drawingColor, isExtraLargeScreen, cellColors, setCellColors, handleFillAll, handleFillRest, handleResetColors}) => {
+const ColorPicker = ({isColorPicked, handlePickColor, selectedColor, handleSetColor, isSmallScreen, drawingColor, isExtraLargeScreen, handleFillAll, handleFillRest, handleResetColors}) => {
 
-  console.log(cellColors);
 
     return (
         <div style={{color: 'white', position:'fixed'}}>
@@ -28,8 +27,10 @@ const ColorPicker = ({isColorPicked, handlePickColor, selectedColor, handleSetCo
                 <Grid container sx={{marginLeft:'20px'}} >
                 
                 <div style={{marginLeft: '40px'}}>
+
+                {/* BUTTON THAT SETS THE COLOR FROM COLORPICKER */}
                 <Button variant="contained" color="secondary" sx={{marginLeft:'25px'}} onClick={handlePickColor}>
-                <Typography variant="subtitle1">Pick Color</Typography>
+                <Typography variant="subtitle1">Set Color</Typography>
                 </Button>
                 </div>
                 {/* if a color was selected then confirmed via "pick color" button, show a green checkmark as feedback, else show a red arrow pointing to the button and error icon */}
