@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import * as com from '../index.js'
+import React, { useState } from 'react'
+import { lay, util } from '../../components' 
 import Grid from '@mui/material/Grid'
 import '../../styles/contact_card.css'
 
@@ -44,13 +44,13 @@ export default function Contacts(){
         <div className = "grid">
      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} sx={{justifyContent: "flex-start", paddingTop: '40px' }}>
       <Grid item xs={12} md={4}>
-        <com.InputForm addToContacts={addToContacts}/>
+        <util.InputForm addToContacts={addToContacts}/>
       </Grid>
       <Grid item xs={12} md={8}>
         <Grid container spacing={2} >
           {contacts.map((contact, index) => (
           <Grid item xs={6} key={index}>
-              <com.ContactCard contact={contact} index={index} />
+              <lay.ContactCard contact={contact} />
             </Grid>
           ))}
         </Grid>

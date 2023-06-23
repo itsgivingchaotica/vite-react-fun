@@ -1,14 +1,3 @@
-// BARREL LOADER
-export { default as ContactCard } from "./ContactCard.jsx"
-export { default as Navbar } from "./Navbar.jsx"
-export { default as InputForm } from "./InputForm.jsx"
-export { default as BackgroundImage } from "./BackgroundImage.jsx"
-export { default as Toolbar } from "../components/Toolbar.jsx"; 
-export { default as Helpbar } from "./Helpbar.jsx"
-export { default as Canvas } from "../components/Canvas.jsx";
-export { default as Title} from "./Title.jsx"
-export { default as RowControl } from "./RowControl.jsx"
-export { default as ColumnControl } from "./ColumnControl.jsx"
-export { default as ColorPicker } from "../components/ColorPicker.jsx"; 
-export { default as ColorButtonGroup} from "./ColorButtonGroup.jsx"
-export { default as OrangeSwitch } from "./OrangeSwitch.jsx"
+export * as lay from './layouts'
+export * as pag from './pages'
+export * as util from './utilities'

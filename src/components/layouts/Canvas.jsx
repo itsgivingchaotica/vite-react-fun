@@ -1,13 +1,12 @@
-import React, { useEffect, useRef } from 'react';
-import TableContainer from '@mui/material/TableContainer';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableRow from '@mui/material/TableRow';
-import TableCell from '@mui/material/TableCell';
-import '../App.css';
+import React from 'react'
+import Table from '@mui/material/Table'
+import TableBody from '@mui/material/TableBody'
+import TableRow from '@mui/material/TableRow'
+import TableCell from '@mui/material/TableCell'
+import '../../App.css'
 
 //EXPRESSES THE STATE OF GRID
-const Canvas = ({ grid, isMouseDown, isDrawing, drawingColor, handleOnMouseOver, handleOnMouseDown, handleOnMouseUp, isCanvasMode, isInitial }) => {
+const Canvas = ({ grid, isMouseDown, isDrawing, drawingColor, handleOnMouseOver, handleOnMouseDown, handleOnMouseUp }) => {
 
   const handleMouseOver = (rowIndex, columnIndex) => {
     if (isMouseDown) {
@@ -43,7 +42,7 @@ const Canvas = ({ grid, isMouseDown, isDrawing, drawingColor, handleOnMouseOver,
       onMouseDown={() => handleMouseDown(rowIndex,columnIndex)}
       onMouseUp={handleOnMouseUp}
       style={{
-        backgroundColor: isInitial && isCanvasMode ? 'white' : cellColor,
+        backgroundColor: cellColor, //the column index is the background color
         border: '3px solid black',
         boxSizing: 'border-box',
         width: '.01%',
