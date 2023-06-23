@@ -1,6 +1,6 @@
 # Vite-React-Fun
 
-## Using the Grid Art Builder
+### Using the Grid Art Builder
 
 home screen
 ![itsgivingchaotica github io_vite-react-fun_ (1)](https://github.com/itsgivingchaotica/vite-react-fun/assets/91578619/e67b403f-335a-4dfc-90f0-4d52dd5f5202)
@@ -42,6 +42,7 @@ begin process for canvas
 change to a blank canvas
 ![itsgivingchaotica github io_vite-react-fun_ (13)](https://github.com/itsgivingchaotica/vite-react-fun/assets/91578619/b40bf3a7-a3fd-46a5-acb0-6a55c53ecc12)
 
+### Using the Contact form, Viewing the Contact cards
 form and contacts page 
 ![itsgivingchaotica github io_vite-react-fun_ (14)](https://github.com/itsgivingchaotica/vite-react-fun/assets/91578619/90f67088-a1b6-4693-9de7-f12bd150f521)
 
