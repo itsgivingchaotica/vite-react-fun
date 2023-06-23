@@ -66,7 +66,7 @@ const InputForm = ({addToContacts}) => {
                 variant="outlined"
                 value={firstName}
                 required
-                onChange={(e) => (setFirstName(e.target.value), setIsTouched(true))}
+                onChange={(e) => (setFirstName(e.target.value))}
                 error={isFirstNameTouched && !firstName}
                 InputProps={{ onBlur: () => setIsFirstNameTouched(true) }}
                 />

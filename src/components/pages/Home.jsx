@@ -1,12 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react'
-import * as com from '..'
+import React, { useState, useEffect } from 'react'
+import {util, lay} from '../../components'
 import Grid from '@mui/material/Grid'
-import TableCell from '@mui/material/TableCell'
-import TableRow from '@mui/material/TableRow'
 import { useMediaQuery } from '@mui/material'
 import '../../App.css'
 
-export default function Home({ref}) {
+export default function Home() {
 
   const [numRows, setNumRows] = useState(0);
   const [numColumns, setNumColumns] = useState(0);
@@ -16,7 +14,7 @@ export default function Home({ref}) {
   const [cellColors,setCellColors] = useState({})
   const [selectedColor, setSelectedColor] = useState('#FF6F61')
   const [drawingColor,setDrawingColor] = useState('#FF6F61')
-  const [isDrawing, setIsDrawing] = useState(false);
+  const [isDrawing, setIsDrawing] = useState(true);
   const [isMouseDown,setIsMouseDown] = useState(false);
   const isSmallScreen = useMediaQuery('(max-width: 900px')
   const isMediumScreen = useMediaQuery('(max-width: 1200px)')
@@ -210,19 +208,19 @@ const handleOnMouseOver = (rowIndex, columnIndex, color) => {
             <Grid container spacing={2}  sx={{border: "4px solid black", height:'100vh'}} >
               {/* HELPBAR */}
               <Grid item xs={0.03}>
-                  <com.Helpbar />
+                  <lay.Helpbar />
               </Grid>
               <Grid item xs={2.7}>
               {/* COLOR PICKER UTIL */}
-                <com.ColorPicker isColorPicked={isColorPicked} handlePickColor={handlePickColor} selectedColor={selectedColor} handleSetColor={handleSetColor} isSmallScreen={isSmallScreen} isExtraLargeScreen={isExtraLargeScreen} drawingColor={drawingColor} cellColors={cellColors} setCellColors={setCellColors} handleFillAll={handleFillAll} handleFillRest={handleFillRest} handleResetColors={handleResetColors}/>
+                <util.ColorPicker isColorPicked={isColorPicked} handlePickColor={handlePickColor} selectedColor={selectedColor} handleSetColor={handleSetColor} isSmallScreen={isSmallScreen} cellColors={cellColors} setCellColors={setCellColors} handleFillAll={handleFillAll} handleFillRest={handleFillRest} handleResetColors={handleResetColors}/>
               </Grid>
               {/* CANVAS FOR GRID */}
               <Grid item xs={6}>
-                  <com.Canvas grid={grid} isMouseDown={isMouseDown} isDrawing={isDrawing} selectedColor={selectedColor} drawingColor={drawingColor} handleOnMouseOver={handleOnMouseOver} handleOnMouseDown={handleOnMouseDown} handleOnMouseUp={handleOnMouseUp} isCanvasMode={isCanvasMode} isInitial={isInitial}/>
+                  <lay.Canvas grid={grid} isMouseDown={isMouseDown} isDrawing={isDrawing} selectedColor={selectedColor} drawingColor={drawingColor} handleOnMouseOver={handleOnMouseOver} handleOnMouseDown={handleOnMouseDown} handleOnMouseUp={handleOnMouseUp} />
               </Grid>
               {/* GRID BUILDER UTIL*/}
-              <Grid item xs={3} sx={{ minWidth: '300px'}}>
-                  <com.Toolbar handleAddRow={handleAddRow} handleAddColumn={handleAddColumn} handleRemoveRow={handleRemoveRow} handleRemoveColumn={handleRemoveColumn} isDrawing={isDrawing} setIsDrawing={setIsDrawing} handleDeleteGrid={handleDeleteGrid} handleModeChange={handleModeChange} isCanvasMode={isCanvasMode} setIsInitial={setIsInitial} isInitial={isInitial} numRows={numRows} numColumns={numColumns} wasDeleted={wasDeleted} />
+              <Grid item xs={3} sx={{ minWidth: '300px' }}>
+                  <util.Toolbar handleAddRow={handleAddRow} handleAddColumn={handleAddColumn} handleRemoveRow={handleRemoveRow} handleRemoveColumn={handleRemoveColumn} setIsDrawing={setIsDrawing} handleDeleteGrid={handleDeleteGrid} handleModeChange={handleModeChange} isCanvasMode={isCanvasMode} setIsInitial={setIsInitial} isInitial={isInitial} numRows={numRows} numColumns={numColumns} wasDeleted={wasDeleted} />
               </Grid>
             </Grid>
         </div>

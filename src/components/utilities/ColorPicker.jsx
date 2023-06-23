@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import * as com from '../components'
+import React from 'react'
+import { lay, util } from '../../components'
 import Badge from '@mui/material/Badge'
 import Button from '@mui/material/Button'
 import Card from '@mui/material/Card'
@@ -12,7 +12,7 @@ import TurnLeftOutlinedIcon from '@mui/icons-material/TurnLeftOutlined'
 import ErrorOutlinedIcon from '@mui/icons-material/ErrorOutlined'
 
 
-const ColorPicker = ({isColorPicked, handlePickColor, selectedColor, handleSetColor, isSmallScreen, drawingColor, isExtraLargeScreen, handleFillAll, handleFillRest, handleResetColors}) => {
+const ColorPicker = ({isColorPicked, handlePickColor, selectedColor, handleSetColor, isSmallScreen, handleFillAll, handleFillRest, handleResetColors}) => {
 
 
     return (
@@ -20,7 +20,7 @@ const ColorPicker = ({isColorPicked, handlePickColor, selectedColor, handleSetCo
           <Card sx={{bgcolor: "rgba(0, 0, 0, 0.5)", height: '100%', width: '300px', justifyContent:'flex-start'}}>
             <Grid container spacing={{ xs: 1, md: 2}}  columns={{ xs: 1}} >
             
-            <com.Title isSmallScreen={isSmallScreen} heading="Color Picker"/>
+            <lay.Title isSmallScreen={isSmallScreen} heading="Color Picker"/>
             
 
                 <Grid item xs={12} >
@@ -52,7 +52,7 @@ const ColorPicker = ({isColorPicked, handlePickColor, selectedColor, handleSetCo
                     </Grid>
                 </Grid>
                 {/* FILL REST, FILL ALL, AND CLEAR ALL COLORS */}
-                <com.ColorButtonGroup handleResetColors={handleResetColors} handleFillRest={handleFillRest} handleFillAll={handleFillAll}/>
+                <util.ColorButtonGroup handleResetColors={handleResetColors} handleFillRest={handleFillRest} handleFillAll={handleFillAll}/>
                 </Grid>
                 </Card>
         </div>

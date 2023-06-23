@@ -1,13 +1,12 @@
-import React, { useEffect, useRef } from 'react';
-import TableContainer from '@mui/material/TableContainer';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableRow from '@mui/material/TableRow';
-import TableCell from '@mui/material/TableCell';
-import '../App.css';
+import React from 'react'
+import Table from '@mui/material/Table'
+import TableBody from '@mui/material/TableBody'
+import TableRow from '@mui/material/TableRow'
+import TableCell from '@mui/material/TableCell'
+import '../../App.css'
 
 //EXPRESSES THE STATE OF GRID
-const Canvas = ({ grid, isMouseDown, isDrawing, drawingColor, handleOnMouseOver, handleOnMouseDown, handleOnMouseUp, isCanvasMode, isInitial }) => {
+const Canvas = ({ grid, isMouseDown, isDrawing, drawingColor, handleOnMouseOver, handleOnMouseDown, handleOnMouseUp }) => {
 
   const handleMouseOver = (rowIndex, columnIndex) => {
     if (isMouseDown) {

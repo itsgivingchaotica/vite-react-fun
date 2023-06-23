@@ -1,7 +1,8 @@
 import React from 'react'
-import { alpha, styled } from '@mui/material/styles';
-import { orange } from '@mui/material/colors';
-import Switch from '@mui/material/Switch';
+import { alpha, styled } from '@mui/material/styles'
+import { orange } from '@mui/material/colors'
+import Switch from '@mui/material/Switch'
+
 //https://codesandbox.io/s/nkmw6c?file=/demo.tsx:32-173
 const OrangeSwitchDemo = styled(Switch)(({ theme }) => ({
   '& .MuiSwitch-switchBase.Mui-checked': {
